@@ -1,5 +1,6 @@
-from segment.segment import Segment
 from .segment import Segment
+
+BEG = Segment()
 
 BEG = {
     'elements': [
