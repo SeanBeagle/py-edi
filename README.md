@@ -2,6 +2,7 @@
 
 # Transmission Structure
 
+```
  ,-- Transmission Envelope ------------[ISA]
 |   ,-- Functional Group --------------[GS]
 |  |   ,-- Transaction Set ------------[ST]
@@ -13,3 +14,4 @@
 |  |   `-- Transaction Set ------------[SE]
 |  `-- Functional Group ---------------[GE]
  `-- Transmission Envelope ------------[IEA]
+ ```
