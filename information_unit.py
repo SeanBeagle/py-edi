@@ -16,6 +16,7 @@ class DataElement:
 
 
 class Segment:
+    _id = str()
     _line = str()
     _data_element_separator = str()
     _data_elements = list()
@@ -24,12 +25,20 @@ class Segment:
         self._line = line
         self._data_element_separator = data_element_separator
         self._data_elements = EdiParser.get_data_elements(line, data_element_separator)
+        self._id = EdiParser.get_segment_id(line, data_element_separator)
 
     def __str__(self):
         return self._line
 
     def __repr__(self):
-        return {f'{self.__class__.__name__}({self})'}
+        return {f'{self.__class__.__name__}({self._id})'}
+
+    def __len__(self):
+        return len(self.data_elements)
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def line(self):
@@ -111,4 +120,8 @@ class EdiParser:
 
     @staticmethod
     def get_data_elements(line, data_element_separator):
-        return [DataElement(item) for item in line.split(data_element_separator)]
+        return [DataElement(item) for item in line.split(data_element_separator)][1:]
+
+    @staticmethod
+    def get_segment_id(line, data_element_separator):
+        return line[:line.find(data_element_separator)]
