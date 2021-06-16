@@ -3,15 +3,15 @@
 # Transmission Structure
 
 ```
- ,-- Transmission Envelope ------------[ISA]
-|   ,-- Functional Group --------------[GS]
-|  |   ,-- Transaction Set ------------[ST]
-|  |  |   ,-- Detail Segment-----------
-|  |  |  |
-|  |  |  |      DataElement*DataElement
-|  |  |  |      
-|  |  |   `-- Detail Segment-----------
-|  |   `-- Transaction Set ------------[SE]
-|  `-- Functional Group ---------------[GE]
- `-- Transmission Envelope ------------[IEA]
+[ISA]-- Interchange ----------------------
+:  [GS]-- Functional Group ---------------
+:  :  [ST]-- Transaction Set -------------
+:  :  :   ,-- Detail Segment------------.
+:  :  :  |                               |
+:  :  :  |    DataElement*DataElement    |
+:  :  :  |                               |
+:  :  :   `-- Detail Segment------------`
+:  :  [SE]-- Transaction Set -------------
+:  [GE]-- Functional Group ---------------
+[IEA]-- Transmission Envelope ------------
  ```
